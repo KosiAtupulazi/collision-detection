@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+streamlit
+torch
+opencv-python
+pydantic
+python-multipart
+google-cloud-storage
+requests
