@@ -46,10 +46,15 @@ def predict_demo():
             else:
                 prediction = "no collision"
             
+            confidence = 0.93 if prediction == "collision" else 0.12  # dummy value
+            timestamp = "00:03 - 00:05" if prediction == "collision" else "—"
+
             results.append({
-                "Video Name": video_name,
-                "Video Path": video_path,
-                "Prediction": prediction
+                "video_name": video_name,
+                "video_path": video_path,
+                "prediction": prediction,
+                "confidence": confidence,
+                "timestamp": timestamp
             })
 
         except HTTPException as e:
