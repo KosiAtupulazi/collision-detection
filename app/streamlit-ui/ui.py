@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/demo"
+API_URL = "http://localhost:8002/demo"
 
 st.title("🚗 Collision Detection Demo")
 st.caption("Simulated predictions on demo dashcam videos.")
@@ -16,6 +16,7 @@ if response.status_code == 200:
             st.error(f"{video['video_name']}: {video['error']}")
         else:
             st.subheader(f"🎥 {video['video_name']}")
+            st.text(f"Video path: {video['video_path']}")
             st.video(video["video_path"])
             st.markdown(f"**Prediction:** `{video['prediction']}`")
             st.markdown(f"**Confidence:** `{round(video['confidence']*100)}%`")

@@ -3,6 +3,8 @@ train/
 test/
 nexar-collision-prediction/
 *.mp4
+processed_dataset/
+
 
 
 # Byte-compiled / optimized / DLL files
@@ -212,9 +214,4 @@ __pycache__/
 # Ignore OS files
 .DS_Store
 Thumbs.db
-train/
-test/
-nexar-collision-prediction/
-*.mp4
-nexar-collision-prediction/
-nexar-collision-prediction/
+

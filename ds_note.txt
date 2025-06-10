@@ -1,0 +1,3 @@
+the raw collision dataset test folder didnt include the appropriate csv file. 
+The only one i saw only had the id column
+so, I made the train set as the full dataset, dividing it into train, test and val
