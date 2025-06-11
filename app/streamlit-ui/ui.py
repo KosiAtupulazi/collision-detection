@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8002/demo"
+API_URL = "http://fastapi:8002/demo"
 
 st.title("🚗 Collision Detection Demo")
 st.caption("Simulated predictions on demo dashcam videos.")
