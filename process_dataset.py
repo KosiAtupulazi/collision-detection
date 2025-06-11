@@ -7,20 +7,24 @@ from pathlib import Path
 CSV_PATH = "nexar-collision-prediction/train.csv"
 VIDEO_DIR = "nexar-collision-prediction/train"
 OUTPUT_DIR = "processed_dataset"
-SPLIT_COUNTS = {
-    'train': 160,
-    'val': 20,
-    'test': 70
-}
+SPLIT_COUNTS = {"train": 160, "val": 20, "test": 70}
 
 # === LOAD AND PREPARE CSV ===
 df = pd.read_csv(CSV_PATH)
-df['label'] = df['target'].map({1: 'crash', 0: 'no_crash'})
+df["label"] = df["target"].map({1: "crash", 0: "no_crash"})
 
 # Ensure enough clips exist
 total_needed = sum(SPLIT_COUNTS.values())
-crash_df = df[df['label'] == 'crash'].sample(n=total_needed, random_state=42).reset_index(drop=True)
-no_crash_df = df[df['label'] == 'no_crash'].sample(n=total_needed, random_state=42).reset_index(drop=True)
+crash_df = (
+    df[df["label"] == "crash"]
+    .sample(n=total_needed, random_state=42)
+    .reset_index(drop=True)
+)
+no_crash_df = (
+    df[df["label"] == "no_crash"]
+    .sample(n=total_needed, random_state=42)
+    .reset_index(drop=True)
+)
 
 # === SPLIT + COPY FILES ===
 splits = {}
@@ -40,8 +44,8 @@ for split in SPLIT_COUNTS:
 
     # Copy video files
     for _, row in split_df.iterrows():
-        clip_id = str(row['id']).zfill(5)  # Convert ID to match file
-        label = row['label']
+        clip_id = str(row["id"]).zfill(5)  # Convert ID to match file
+        label = row["label"]
         filename = f"{clip_id}.mp4"
 
         src_path = os.path.join(VIDEO_DIR, filename)
@@ -56,4 +60,6 @@ for split in SPLIT_COUNTS:
     # Save CSV for this split
     split_df.to_csv(os.path.join(OUTPUT_DIR, f"{split}.csv"), index=False)
 
-print("All done! Your data is now split into train / val / test under 'processed_dataset'")
+print(
+    "All done! Your data is now split into train / val / test under 'processed_dataset'"
+)

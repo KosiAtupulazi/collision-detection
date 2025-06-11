@@ -24,6 +24,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Lint code with flake8
+      run: |
+        pip install flake8
+        flake8 . || echo "Lint warnings found"
+
+    - name: Format check with black
+      run: |
+        pip install black
+        black --check . || echo "Some files would be reformatted"
+
+    - name: Type check with pyright
+      uses: jakebailey/pyright-action@v1
+
+    
     - name: Run tests
       run: |
         pytest || echo "No tests found, Skipping..."
