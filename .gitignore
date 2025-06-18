@@ -4,7 +4,8 @@ test/
 nexar-collision-prediction/
 *.mp4
 processed_dataset/
-
+scripts/frames/
+final_dataset/
 
 
 # Byte-compiled / optimized / DLL files

@@ -2,12 +2,13 @@ import os
 import pandas as pd
 import shutil
 from pathlib import Path
+import random
 
 # === CONFIG ===
 CSV_PATH = "nexar-collision-prediction/train.csv"
 VIDEO_DIR = "nexar-collision-prediction/train"
-OUTPUT_DIR = "processed_dataset"
-SPLIT_COUNTS = {"train": 160, "val": 20, "test": 70}
+OUTPUT_DIR = "final_dataset"
+SPLIT_COUNTS = {"train": 250, "val": 50, "test": 80}
 
 # === LOAD AND PREPARE CSV ===
 df = pd.read_csv(CSV_PATH)
@@ -39,7 +40,8 @@ for split in SPLIT_COUNTS:
     no_crash_df = no_crash_df[n:]
 
     # Combine and store
-    split_df = pd.concat([crash_split, no_crash_split]).reset_index(drop=True)
+    split_df = pd.concat([crash_split, no_crash_split]).sample(frac=1, random_state=42).reset_index(drop=True)
+
     splits[split] = split_df
 
     # Copy video files
@@ -59,7 +61,9 @@ for split in SPLIT_COUNTS:
 
     # Save CSV for this split
     split_df.to_csv(os.path.join(OUTPUT_DIR, f"{split}.csv"), index=False)
+    print(f"{split.upper()}: {len(split_df)} total clips ({n} crash + {n} no_crash)")
+
 
 print(
-    "All done! Your data is now split into train / val / test under 'processed_dataset'"
+    "All done! Your data is now split into train / val / test under 'final_dataset'"
 )
