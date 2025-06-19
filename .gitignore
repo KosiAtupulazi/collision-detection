@@ -4,7 +4,7 @@ test/
 nexar-collision-prediction/
 *.mp4
 processed_dataset/
-scripts/frames/
+frames/
 final_dataset/
 
 
