@@ -8,15 +8,17 @@ import numpy as np
 
 #self: memory of this dataset
 class ClipDataset(torch.utils.data.Dataset):
-    def __init__(self, csv_path, transform=None):
+    def __init__(self, csv_path, split='train', transform=None):
         self.data = pd.read_csv(csv_path)
+        self.split = split
         self.transform = transform # Optional transform
     
     #when the model wants a clip at index
     def __getitem__(self, index):
         row = self.data.iloc[index] #row[index] of the csv
+        project_root = os.path.dirname(os.path.dirname(__file__))  # gets path to /collision-detection
         # builds the full file path by combining the label (as folder) and clip name, e.g., 'frames/crash/00822_clip.npy' from the csv
-        clip_path = os.path.join('frames', row['label'], row['clip_name']) 
+        clip_path = os.path.join(project_root, 'frames', self.split, row['label'], row['clip_name']) 
         clip = np.load(clip_path) #loading the npy files
 
         #apply the transformation if its set

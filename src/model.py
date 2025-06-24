@@ -3,10 +3,14 @@
 import torch
 import torch.nn as nn
 import torchvision
+from torchvision.models.video import r3d_18, mc3_18, R3D_18_Weights, MC3_18_Weights
 
 def build_model_r3d_18():
     #load teh pre-trained 3D ResNet-18 model
-    model = torchvision.models.video.r3d_18(pretrained=True)
+    model = torchvision.models.video.r3d_18()
+
+    weights = weights=R3D_18_Weights.DEFAULT
+    model = r3d_18(weights=weights)
 
     for param in model.parameters():
         param.requires_grad = False # freeze all layers
@@ -16,7 +20,10 @@ def build_model_r3d_18():
     return model
 
 def build_model_mc3():
-    model = torchvision.models.video.mc3_18(pretrained=True)
+    model = torchvision.models.video.mc3_18()
+
+    weight = weights=MC3_18_Weights.DEFAULT
+    model = mc3_18(weights=weights)
     
     for param in model.parameters():
         param.requires_grad = False

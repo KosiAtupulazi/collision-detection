@@ -6,13 +6,6 @@ nexar-collision-prediction/
 processed_dataset/
 frames/
 final_dataset/
-./.venv
-
-.venv/
-nexar-collision-prediction/
-final_dataset/
-processed_dataset/
-frames/
 *.pt
 *.pth
 *.h5
@@ -226,3 +219,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+.venv/
+nexar-collision-prediction/
+final_dataset/
+processed_dataset/
+*.pt
+*.pth
+*.ipynb_checkpoints/
