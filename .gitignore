@@ -6,7 +6,17 @@ nexar-collision-prediction/
 processed_dataset/
 frames/
 final_dataset/
+./.venv
 
+.venv/
+nexar-collision-prediction/
+final_dataset/
+processed_dataset/
+frames/
+*.pt
+*.pth
+*.h5
+*.ipynb_checkpoints/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
