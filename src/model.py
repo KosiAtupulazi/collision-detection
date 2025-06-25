@@ -19,6 +19,7 @@ def build_model_r3d_18():
     model.fc = nn.Linear(in_features, 2) # 2 output class for crash or no_crash (changing the final classfication layer)
     return model
 
+### Terrible(63%) Accuracy prior to tuning ###
 def build_model_mc3():
     model = torchvision.models.video.mc3_18()
 
