@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="app/demo_videos"), name="static")
+app.mount("/static", StaticFiles(directory="demo_videos"), name="static")
 
 
 def get_video_path(video_name: str, request: Request) -> str:

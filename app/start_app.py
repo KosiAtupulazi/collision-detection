@@ -4,7 +4,7 @@ import time
 import requests
 
 def run_fastapi():
-    subprocess.run(["uvicorn", "fastapi_app:app", "--host", "0.0.0.0", "--port", "8000"])
+    subprocess.run(["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"])
 
 def wait_for_fastapi():
     while True:
@@ -18,7 +18,7 @@ def wait_for_fastapi():
         time.sleep(1)  # wait 1 second and try again
 
 def run_streamlit():
-    subprocess.run(["streamlit", "run", "app/ui.py", "--server.port=8501", "--server.address=0.0.0.0"])
+    subprocess.run(["streamlit", "run", "ui.py", "--server.port=8080", "--server.address=0.0.0.0"])
 
 # Start FastAPI in a thread
 t1 = threading.Thread(target=run_fastapi)
