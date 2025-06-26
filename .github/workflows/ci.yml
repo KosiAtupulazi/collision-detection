@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CICD Pipeline
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python: '3.10.6'
+        python-version: '3.10.6'
       
     - name: Install dependencies
       run: |
@@ -37,9 +37,30 @@ jobs:
     - name: Type check with pyright
       uses: jakebailey/pyright-action@v1
 
-    
     - name: Run tests
       run: |
         pytest || echo "No tests found, Skipping..."
+    
+    - name: Setup Google Cloud CLI
+      uses: 
+        google-github-actions/setup-gcloud@v1
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID}}
+        service_account_key: ${{ secrets.GCP_SA_KEY}}
+        export_default_credentials: true
+
+    - name: Build and Push Docker Image
+      run: |
+        gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT_ID}}/coll-detect-docker
+
+    - name: Deploy on Cloud Run
+      run: |
+        gcloud run deploy collision-api \
+          -- image gcr.io/${{ secrets.GCP_PROJECT_ID }}/coll-detect-docker \
+          --platform managed \
+          --region us-central1 \
+          --allow-unauthenticated
+
+        
 
 
