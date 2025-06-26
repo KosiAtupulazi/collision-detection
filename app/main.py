@@ -36,6 +36,9 @@ def get_video_path(video_name: str, request: Request) -> str:
 def root():
     return {"Message": "Collision Detection page is working"}
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
 
 @app.get("/demo")
 def predict_demo(request: Request):
