@@ -45,7 +45,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GCP_SA_KEY_BASE64 }}
+        service_account_key: ${{ secrets.GCP_SA_KEY_B64 }}
         credentials_format: 'base64'
         export_default_credentials: true
     
