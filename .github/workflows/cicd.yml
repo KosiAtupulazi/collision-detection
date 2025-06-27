@@ -62,12 +62,12 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT_ID }}/coll-detect-docker
+        gcloud builds submit --tag us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/collision-detection/collision-detection
 
     - name: Deploy on Cloud Run
       run: |
         gcloud run deploy collision-api \
-          -- image gcr.io/${{ secrets.GCP_PROJECT_ID }}/coll-detect-docker \
+          -- image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/collision-detection/collision-detection \
           --platform managed \
           --region us-central1 \
           --allow-unauthenticated
