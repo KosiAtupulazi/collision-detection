@@ -41,14 +41,17 @@ jobs:
       run: |
         pytest || echo "No tests found, Skipping..."
     
-    - name: Setup Google Cloud CLI
-      uses: google-github-actions/setup-gcloud@v1
-      with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GCP_SA_KEY_B64 }}
-        credentials_format: 'base64'
-        export_default_credentials: true
-    
+    - name: Decode GCP service account key
+      run: |
+        echo "${{ secrets.GCP_SA_KEY_B64 }}" | base64 --decode > $HOME/gcloud-key.json
+        cat $HOME/gcloud-key.json | head -n 5  # debug print
+
+    - name: Authenticate with GCP manually
+      run: |
+        gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
+        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+        gcloud auth list
+
     - name: Debug Check gcloud account
       run: |
         echo "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS"
@@ -69,7 +72,7 @@ jobs:
           --region us-central1 \
           --allow-unauthenticated
     
-          
+
     - name: Debug Environment
       run: |
         gcloud auth list
