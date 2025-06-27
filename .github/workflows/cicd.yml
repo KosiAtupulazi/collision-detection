@@ -57,7 +57,6 @@ jobs:
         gcloud auth list
         gcloud config list
 
-
     - name: Build and Push Docker Image
       run: |
         gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT_ID }}/coll-detect-docker
