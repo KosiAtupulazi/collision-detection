@@ -18,7 +18,7 @@ def wait_for_fastapi():
         time.sleep(1)  # wait 1 second and try again
 
 def run_streamlit():
-    subprocess.run(["streamlit", "run", "ui.py", "--server.port=8080", "--server.address=0.0.0.0"])
+    subprocess.run(["streamlit", "run", "ui2.py", "--server.port=8080", "--server.address=0.0.0.0"])
 
 # Start FastAPI in a thread
 t1 = threading.Thread(target=run_fastapi)
