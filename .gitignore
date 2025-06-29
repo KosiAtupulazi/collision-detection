@@ -2,7 +2,7 @@
 train/
 test/
 nexar-collision-prediction/
-*.mp4
+#*.mp4
 processed_dataset/
 frames/
 final_dataset/
