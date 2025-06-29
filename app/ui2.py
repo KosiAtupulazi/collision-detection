@@ -63,9 +63,9 @@ with tab2:
     st.markdown("""
     **Model:** `R3D_18`  
     **Architecture:** 3D CNN  
-    **Input:** 16-frame video clips (1.6 sec)  
+    **Input:** `16-frame video clips (1.6 sec)`  
     **Output:** Binary classification → `crash` or `no_crash`  
-    **Trained on:** Labeled Nexar Dashcam Clips
+    **Trained on:** `Labeled Nexar Dashcam Clips`
 
     **Evaluation Metrics:**  
     - Accuracy: `75.6%`  
@@ -83,7 +83,7 @@ with tab3:
 
     ### 📦 Dataset  
     - Source: Nexar dashcam dataset  
-    - Each clip: 16 frames (~1.6 seconds)  
+    - Each clip: `16 frames (~1.6 seconds)`  
     - Labeled as `crash` or `no_crash`  
     - Balanced sample from real-world driving footage
 
