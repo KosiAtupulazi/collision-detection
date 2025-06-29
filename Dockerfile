@@ -5,4 +5,5 @@ COPY ./app /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "start_app.py"]
+EXPOSE 8080
+CMD ["streamlit", "run", "ui2.py", "--server.port=8080", "--server.address=0.0.0.0"]
