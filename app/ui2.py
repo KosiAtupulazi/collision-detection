@@ -68,10 +68,10 @@ with tab2:
     **Trained on:** `Labeled Nexar Dashcam Clips`
 
     **Evaluation Metrics:**  
-    - Accuracy: `75.6%`  
-    - Precision: `75.7%`  
-    - Recall: `75.6%`  
-    - F1 Score: `75.6%`  
+    - Accuracy: `75.62%`  
+    - Precision: `75.73%`  
+    - Recall: `75.62%`  
+    - F1 Score: `75.60%`  
     """)
 
 
