@@ -4,7 +4,7 @@ import os
 import shutil
 
 # --- Load prediction data with paths ---
-csv_path = "demo_top10.csv"
+csv_path = "demo_top15.csv"
 df = pd.read_csv(csv_path)
 
 label_map = {0: "no_crash", 1: "crash"}
@@ -36,9 +36,8 @@ tab1, tab2, tab3 = st.tabs(["📽️ Demo", "🧠 Model Info", "📄 Project REA
 
 with tab1:
     st.title("🚗 Collision Detection Demo 🚗")
-    st.markdown("Simulated predictions on top 10 confident dashcam clips.")
 
-    top10 = df.sort_values(by="confidence", ascending=False).head(10)
+    top10 = df.sort_values(by="confidence", ascending=False).head(15)
 
 
     for i, row in top10.iterrows():
@@ -113,8 +112,3 @@ with tab3:
     ### 🙋🏽‍♀️ Author  
     Kosi Atupulazi | Master's Student, Major in Artificial Intelligence | University of Texas at San Antonio (UTSA)  
     """)
-
-# Optional: You can keep or remove the sidebar.
-with st.sidebar:
-    st.header("ℹ️ Quick Info")
-    st.markdown("This is a Streamlit demo site to showcase model predictions on dashcam footage.")
