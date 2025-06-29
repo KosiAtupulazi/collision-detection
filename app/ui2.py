@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import os
+import shutil
 
 # --- Load prediction data with paths ---
-csv_path = "/home/atupulazi/personal_projects/collision-detection/app/demo_predictions_with_paths.csv"
+csv_path = "demo_top10.csv"
 df = pd.read_csv(csv_path)
 
 label_map = {0: "no_crash", 1: "crash"}
@@ -32,19 +33,19 @@ df["prediction"] = df["prediction"].map(label_map)
 # --- Tabs ---
 tab1, tab2, tab3 = st.tabs(["📽️ Demo", "🧠 Model Info", "📄 Project README"])
 
-# =======================
-# 📽️ DEMO TAB
-# =======================
+
 with tab1:
     st.title("🚗 Collision Detection Demo 🚗")
     st.markdown("Simulated predictions on top 10 confident dashcam clips.")
 
     top10 = df.sort_values(by="confidence", ascending=False).head(10)
+
+
     for i, row in top10.iterrows():
         st.markdown("---")
         st.markdown(f"**Clip:** `{row['clip_name']}`")
 
-        video_full_path = os.path.join("..", row["video_path"])
+        video_full_path = row["video_path"]
         if os.path.exists(video_full_path):
             st.video(video_full_path)
         else:
@@ -57,9 +58,7 @@ with tab1:
         **Time of Event:** `{row.get('time_of_event', 'N/A')}`
         """)
 
-# =======================
-# 🧠 MODEL INFO TAB
-# =======================
+
 with tab2:
     st.header("🧠 Model Overview")
     st.markdown("""
@@ -76,9 +75,7 @@ with tab2:
     - F1 Score: `75.6%`  
     """)
 
-# =======================
-# 📄 README TAB
-# =======================
+
 with tab3:
     st.header("📄 Project README")
     st.markdown("""
