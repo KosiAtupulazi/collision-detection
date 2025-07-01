@@ -1,18 +1,14 @@
 clip_name,ground_truth,prediction,confidence,id,time_of_event,time_of_alert,target,label,video_file,video_path
-01924_clip.npy,0,1,0.6764054298400879,1924,,,0,no_crash,01924.mp4,demo_videos/01924.mp4
 01519_clip.npy,0,0,0.8020628094673157,1519,,,0,no_crash,01519.mp4,demo_videos/01519.mp4
 00503_clip.npy,1,1,0.980334222316742,503,19.4,16.033,1,crash,00503.mp4,demo_videos/00503.mp4
 00382_clip.npy,1,1,0.9865901470184326,382,18.258,17.29,1,crash,00382.mp4,demo_videos/00382.mp4
 00329_clip.npy,1,1,0.9675222039222716,329,19.233,17.833,1,crash,00329.mp4,demo_videos/00329.mp4
 00537_clip.npy,1,1,0.9522121548652648,537,20.418,19.699,1,crash,00537.mp4,demo_videos/00537.mp4
-01178_clip.npy,0,1,0.598993182182312,1178,,,0,no_crash,01178.mp4,demo_videos/01178.mp4
 00301_clip.npy,1,1,0.5732985734939575,301,20.02,19.119,1,crash,00301.mp4,demo_videos/00301.mp4
-01156_clip.npy,0,0,0.6553369760513306,1156,,,0,no_crash,01156.mp4,demo_videos/01156.mp4
 00227_clip.npy,1,1,0.816319465637207,227,20.067,18.767,1,crash,00227.mp4,demo_videos/00227.mp4
 02039_clip.npy,0,1,0.5689047574996948,2039,,,0,no_crash,02039.mp4,demo_videos/02039.mp4
-00683_clip.npy,1,0,0.5129332542419434,683,20.912,19.474,1,crash,00683.mp4,demo_videos/00683.mp4
 01278_clip.npy,0,0,0.7971321940422058,1278,,,0,no_crash,01278.mp4,demo_videos/01278.mp4
-01639_clip.npy,0,1,0.5081065893173218,1639,,,0,no_crash,01639.mp4,demo_videos/01639.mp4
+
 
 
 

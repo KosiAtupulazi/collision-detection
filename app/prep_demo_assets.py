@@ -6,8 +6,8 @@ import shutil
 df = pd.read_csv("data/demo_predictions_with_paths.csv")
 
 # Filter top confident crash and no_crash separately
-top_crash = df[df["label"] == "crash"].sort_values(by="confidence", ascending=False).head(7)
-top_no_crash = df[df["label"] == "no_crash"].sort_values(by="confidence", ascending=False).head(7)
+top_crash = df[df["label"] == "crash"].sort_values(by="confidence", ascending=False).head(10)
+top_no_crash = df[df["label"] == "no_crash"].sort_values(by="confidence", ascending=False).head(10)
 
 # Combine into one balanced DataFrame
 balanced_top = pd.concat([top_crash, top_no_crash]).reset_index(drop=True)
