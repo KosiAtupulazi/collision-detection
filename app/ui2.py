@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import shutil
+import base64
 
 # --- Load prediction data with paths ---
 csv_path = "demo_top15.csv"
@@ -29,6 +30,11 @@ df["prediction"] = df["prediction"].map(label_map)
 # else:
 #     st.warning("Metrics file not found. Please check the path.")
 
+def load_video_as_base64(path):
+    with open(path, "rb") as video_file:
+        video_bytes = video_file.read()
+        encoded = base64.b64encode(video_bytes).decode()
+        return f"data:video/mp4;base64,{encoded}"
 
 # --- Tabs ---
 tab1, tab2, tab3 = st.tabs(["📽️ Demo", "🧠 Model Info", "📄 Project README"])
@@ -41,14 +47,27 @@ with tab1:
 
 
     for i, row in top10.iterrows():
+
+        # video_full_path = row["video_path"]
+        # st.write("Trying to load:", video_full_path)
+        # st.write("Exists:", os.path.exists(video_full_path))
+
+        
+
         st.markdown("---")
         st.markdown(f"**Clip:** `{row['clip_name']}`")
 
         video_full_path = row["video_path"]
+        # if os.path.exists(video_full_path):
+        #     st.video(video_full_path)
+        # else:
+        #     st.warning(f"Video not found: {row['video_path']}")
+
         if os.path.exists(video_full_path):
-            st.video(video_full_path)
+            video_data_url = load_video_as_base64(video_full_path)
+            st.video(video_data_url)
         else:
-            st.warning(f"Video not found: {row['video_path']}")
+             st.warning(f"Video not found: {video_full_path}")
 
         st.markdown(f"""
         **Ground Truth:** `{row['ground_truth']}`  
