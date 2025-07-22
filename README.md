@@ -2,6 +2,12 @@
 
 This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash.
 
+# Dataset
+
+This project uses labeled dashcam video clips from the [Nexar AI Dashcam Challenge dataset]((https://www.kaggle.com/competitions/nexar-collision-prediction))]. Clips were trimmed and preprocessed into 16-frame sequences centered around annotated collision events.
+
+- Videos were sampled to include both **crash** and **no crash** events.
+
 ### Model
 
 This project uses **ResNet3D-18 (`r3d_18`)**, a 3D convolutional neural network designed to recognize actions in video by capturing both **spatial** (what something looks like) and **temporal** (how it moves) features.
@@ -38,6 +44,7 @@ https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 | `src/metrics_log/`           | *(various)*                   | Logs of evaluation metrics (accuracy, loss, etc.).                         |
 | `src/plots/`                 | *(various)*                   | Output plots like accuracy curves or training history.                     |
 | `src/test_metrics/`          | *(various)*                   | Scripts or files for testing and validating metric calculations.           |
+
 
 # 📽️ Demo
 
