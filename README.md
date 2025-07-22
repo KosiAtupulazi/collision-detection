@@ -1,6 +1,7 @@
 # Project Overview
 
-This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash.
+This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash. This system addresses a growing need for **automated crash detection** in road safety applications, insurance tech, and fleet monitoring. By analyzing raw dashcam footage in real time, this offers a scalable solution to detect incidents **without relying on external sensors while minimizing the need for manual review**.
+
 
 The full pipeline from preprocessing, prediction to demo UI—is **containerized and deployed automatically to Google Cloud** using a CI/CD workflow with **GitHub Actions**, **Docker**, and **Google Cloud Run**.
 
