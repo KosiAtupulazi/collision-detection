@@ -2,6 +2,22 @@
 
 This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash.
 
+### 🧠 Model Overview
+
+This project uses **ResNet3D-18 (`r3d_18`)**, a 3D convolutional neural network designed for action recognition in videos. Unlike 2D CNNs that operate on individual frames, **3D CNNs capture both spatial and temporal features** by applying convolutions across time (video frames) as well as space (width & height).
+
+#### 📦 Key Characteristics:
+- Accepts **video clips** (e.g., 16 frames × 3 channels × H × W) as input.
+- Uses **3D convolutional kernels** to extract motion patterns across frames.
+- Based on the classic **ResNet-18** architecture but extended to 3D convolutions.
+- Outputs class probabilities (e.g., `crash` vs. `no_crash`) through a final softmax layer.
+
+This allows the model to detect subtle patterns like sudden stops, collisions, or motion changes that are only visible when analyzing a sequence of frames.
+
+#### 📚 Paper Reference:
+> Hara, K., Kataoka, H., & Satoh, Y. (2018). [**Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs and ImageNet?**](https://arxiv.org/abs/1711.11248) — CVPR 2018.
+
+
 ### 📁 File Overview
 
 | Path                         | File                          | Description                                                                |
