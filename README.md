@@ -1,13 +1,13 @@
-### Project Overview
+# Project Overview
 
 This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash.
 
-# Model
+### Model
 
 This project uses **ResNet3D-18 (`r3d_18`)**, a 3D convolutional neural network designed to recognize actions in video by capturing both **spatial** (what something looks like) and **temporal** (how it moves) features.
 Unlike 2D CNNs that operate on individual frames, **3D CNNs capture both spatial and temporal features** by applying convolutions across time (video frames).
 
-# How it works:
+### How it works:
 - Input shape: **(batch_size, channels=3, frames=16, height, width)**
 - Applies **3D convolutions** over time and space.
 - Based on the **ResNet-18** architecture (with skip connections) to handle 3D data.
@@ -15,12 +15,12 @@ Unlike 2D CNNs that operate on individual frames, **3D CNNs capture both spatial
 
 This allows the model to detect subtle patterns like sudden stops, collisions, or motion changes that are only visible when analyzing a sequence of frames.
 
-# Paper Reference:
+### Paper Reference:
 > Kensho Hara, Hirokatsu Kataoka, Yutaka Satoh (2017). [**Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs and ImageNet?**](
 https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 
 
-### File Overview
+# File Overview
 
 | Path                         | File                          | Description                                                                |
 |------------------------------|-------------------------------|----------------------------------------------------------------------------|
@@ -39,7 +39,7 @@ https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 | `src/plots/`                 | *(various)*                   | Output plots like accuracy curves or training history.                     |
 | `src/test_metrics/`          | *(various)*                   | Scripts or files for testing and validating metric calculations.           |
 
-### 📽️ Demo
+# 📽️ Demo
 
 > ⚠️ **Note:** This app is hosted on Google Cloud Run and may take up to 1 minute to load due to cold starts when inactive.
 
