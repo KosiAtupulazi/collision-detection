@@ -62,7 +62,7 @@ https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 
 # Setup Instructions
 
-### Run with Docker (Recommended – matches deployed version)
+### Run with Docker
 
 ```bash
 # Clone the repo
