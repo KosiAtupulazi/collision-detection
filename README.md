@@ -1,24 +1,26 @@
-# Project Overview
+### Project Overview
 
 This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash.
 
-### 🧠 Model Overview
+# Model
 
-This project uses **ResNet3D-18 (`r3d_18`)**, a 3D convolutional neural network designed for action recognition in videos. Unlike 2D CNNs that operate on individual frames, **3D CNNs capture both spatial and temporal features** by applying convolutions across time (video frames) as well as space (width & height).
+This project uses **ResNet3D-18 (`r3d_18`)**, a 3D convolutional neural network designed to recognize actions in video by capturing both **spatial** (what something looks like) and **temporal** (how it moves) features.
+Unlike 2D CNNs that operate on individual frames, **3D CNNs capture both spatial and temporal features** by applying convolutions across time (video frames).
 
-#### 📦 Key Characteristics:
-- Accepts **video clips** (e.g., 16 frames × 3 channels × H × W) as input.
-- Uses **3D convolutional kernels** to extract motion patterns across frames.
-- Based on the classic **ResNet-18** architecture but extended to 3D convolutions.
-- Outputs class probabilities (e.g., `crash` vs. `no_crash`) through a final softmax layer.
+# How it works:
+- Input shape: **(batch_size, channels=3, frames=16, height, width)**
+- Applies **3D convolutions** over time and space.
+- Based on the **ResNet-18** architecture (with skip connections) to handle 3D data.
+- Final outputs `crash` or `no_crash` class probabilities.
 
 This allows the model to detect subtle patterns like sudden stops, collisions, or motion changes that are only visible when analyzing a sequence of frames.
 
-#### 📚 Paper Reference:
-> Hara, K., Kataoka, H., & Satoh, Y. (2018). [**Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs and ImageNet?**](https://arxiv.org/abs/1711.11248) — CVPR 2018.
+# Paper Reference:
+> Kensho Hara, Hirokatsu Kataoka, Yutaka Satoh (2017). [**Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs and ImageNet?**](
+https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 
 
-### 📁 File Overview
+### File Overview
 
 | Path                         | File                          | Description                                                                |
 |------------------------------|-------------------------------|----------------------------------------------------------------------------|
