@@ -28,7 +28,7 @@ This allows the model to detect subtle patterns like sudden stops, collisions, o
 https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 
 # Project Flow
-<img width="262" height="631" alt="image" src="https://github.com/user-attachments/assets/9dd9ed1e-a633-416b-b86f-518f415b4819" />
+<img width="222" height="621" alt="image" src="https://github.com/user-attachments/assets/090bf248-5c4e-4fe8-9d04-c3d90180e17c" />
 
 
 # File Overview
