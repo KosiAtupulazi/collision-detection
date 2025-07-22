@@ -48,3 +48,15 @@ https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 <img width="975" height="797" alt="Collision Detection Demo Screenshot" src="https://github.com/user-attachments/assets/030c8bd9-2d64-48ab-bc0a-67e72913f3a7" />
 
 
+# Setup Instructions
+
+### Run with Docker (Recommended – matches deployed version)
+
+```bash
+# Clone the repo
+git clone https://github.com/KosiAtupulazi/collision-detection.git
+cd collision-detection
+
+# Build and run the container
+docker build -t collision-app .
+docker run -p 8501:8501 collision-app
