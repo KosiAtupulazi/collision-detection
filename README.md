@@ -27,6 +27,9 @@ This allows the model to detect subtle patterns like sudden stops, collisions, o
 > Kensho Hara, Hirokatsu Kataoka, Yutaka Satoh (2017). [**Can Spatiotemporal 3D CNNs Retrace the History of 2D CNNs and ImageNet?**](
 https://doi.org/10.48550/arXiv.1708.07632) — ICCV 2017.
 
+# Project Flow
+<img width="262" height="631" alt="image" src="https://github.com/user-attachments/assets/9dd9ed1e-a633-416b-b86f-518f415b4819" />
+
 
 # File Overview
 
