@@ -1,3 +1,6 @@
+# Collision Detection
+A Resnet3D_18 model-based project for classifying crash vs. no-crash dashcam video
+
 # Project Overview
 
 This project detects collisions in dashcam videos using a fine-tuned 3D CNN (r3d_18). It processes short clips by extracting 16 frames around ```time_of_event``` and classifies them as crash or no-crash. This system addresses a growing need for **automated crash detection** in road safety applications, insurance tech, and fleet monitoring. By analyzing raw dashcam footage in real time, this offers a scalable solution to detect incidents **without relying on external sensors while minimizing the need for manual review**.
